@@ -57,6 +57,17 @@ public abstract class StatementBuilder<T, ID> {
 	}
 
 	/**
+	 * returns current where object; creates one if it doesn't exist
+	 * @return
+     */
+	public Where<T, ID> getWhere() {
+		if (where == null) {
+			where = new Where<T, ID>(tableInfo, this, databaseType);
+		}
+		return where;
+	}
+
+	/**
 	 * Set the {@link Where} object on the query. This allows someone to use the same Where object on multiple queries.
 	 */
 	public void setWhere(Where<T, ID> where) {

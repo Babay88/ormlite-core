@@ -711,4 +711,12 @@ public class Where<T, ID> {
 	private Clause peek() {
 		return clauseStack[clauseStackLevel - 1];
 	}
+
+	/**
+	 * Return true if this where has any statements
+	 * @return
+     */
+	public boolean hasStatements(){
+		return clauseStackLevel > 0;
+	}
 }
